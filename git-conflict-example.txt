@@ -1,0 +1,31 @@
+git init A
+git init B
+cd A/
+git remote add origin "https link"
+git pull
+cd ..
+cd B/
+git remote add origin "https link"
+git pull
+cd ..
+cd A/
+vi README.md
+(edit the file)
+git status
+git add .
+git commit -m "push from A"
+git push origin master
+cd ..
+cd B/
+vi README.md
+(edit the file)
+git status
+git add .
+git commit -m "Push from B"
+git push origin master
+(you get a conflict error after running the above command)
+git pull --rebase origin master
+git mergetool
+(edit/delete the line which caused the conflict and save it)
+git push origin master
+
